@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إصدار بطاقات الموظفين | واصل</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>نظام إصدار البطاقات</h1>
+            <p>إصدار بطاقات الموظفين بتصميم واصل</p>
+        </header>
+
+        <main>
+            <section class="form-section glass">
+                <h2 id="formHeading">بيانات البطاقة</h2>
+                <form id="idForm">
+                    <div class="input-group">
+                        <label for="card_type">نوع البطاقة</label>
+                        <select id="card_type" name="card_type" required>
+                            <option value="employee" selected>موظف (Employee)</option>
+                            <option value="student">طالب (Student)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label id="nameLabel" for="name">الاسم</label>
+                        <input type="text" id="name" name="name" placeholder="مثال: عبدالعزيز البلوشي" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label id="jobTitleLabel" for="job_title">المسمى الوظيفي</label>
+                        <select id="job_title" name="job_title" required>
+                            <option value="" disabled selected>اختر المسمى...</option>
+                            <option value="سائق حافلة">سائق حافلة (Driver)</option>
+                            <option value="مشرفة حافلة">مشرفة حافلة (Supervisor)</option>
+                            <option value="موظف إداري">موظف إداري (Admin)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label id="jobNumberLabel" for="job_number">الرقم الوظيفي</label>
+                        <input type="text" id="job_number" name="job_number" placeholder="مثال: 073" required>
+                    </div>
+
+                    <!-- Additional Student Fields (Hidden by default or shown via script) -->
+                    <div id="studentFields" style="display: none;">
+                        <div class="input-group">
+                            <label for="dob">تاريخ الميلاد (DOB)</label>
+                            <input type="date" id="dob" name="dob">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" placeholder="example@mail.com">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+966 5XX XXX XXX">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="photo">صورة الموظف</label>
+                        <div class="file-upload">
+                            <input type="file" id="photo" name="photo" accept="image/*" required>
+                            <span id="file-label">اضغط لرفع الصورة...</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="generateBtn">
+                        <span>إصدار البطاقة</span>
+                        <div class="btn-glow"></div>
+                    </button>
+
+                    <div id="loader" class="hidden">
+                        <div class="spinner"></div>
+                        <p>جاري المعالجة واعتماد التصميم...</p>
+                    </div>
+                </form>
+            </section>
+
+            <section class="preview-section hidden" id="previewSection">
+                <div class="glass stick-top">
+                    <h2>معاينة البطاقة</h2>
+                    <div class="card-display">
+                        <img id="cardPreview" src="" alt="Card Generated">
+                    </div>
+                    <div class="actions">
+                        <a id="downloadPng" href="#" download class="btn secondary">تحميل صورة (PNG)</a>
+                        <a id="downloadPdf" href="#" download class="btn primary">تحميل ملف الطباعة (PDF)</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

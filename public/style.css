@@ -1,0 +1,310 @@
+:root {
+    --primary-color: #0d1b2a;
+    --primary-light: #1b263b;
+    --secondary-color: #FDD835;
+    --secondary-hover: #fbc02d;
+    --accent-color: #415a77;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --text-color: #e0e1dd;
+    --text-dark: #1b263b;
+    --input-bg: rgba(255, 255, 255, 0.85);
+    --input-focus: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #1b263b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    direction: rtl;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    letter-spacing: -0.5px;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 12px;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #e0e1dd;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background: var(--input-bg);
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    outline: none;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+input[type="text"]:focus, select:focus {
+    background: var(--input-focus);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(253, 216, 53, 0.2);
+}
+
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    background: var(--input-bg);
+    padding: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    border: 2px dashed rgba(27, 38, 59, 0.4);
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.file-upload:hover {
+    border-color: var(--secondary-color);
+    background: #ffffff;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    font-size: 100px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+button {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--secondary-color), #f9a826);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(253, 216, 53, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(253, 216, 53, 0.4);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.btn-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.2);
+    transform: rotate(45deg);
+    animation: glowSweep 3s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes glowSweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.card-display {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 25px;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-display img {
+    max-width: 100%;
+    max-height: 520px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s;
+}
+
+.btn.primary {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(253, 216, 53, 0.2);
+}
+
+.btn.secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.6);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn.secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #ffffff;
+}
+
+/* Loader Styles */
+#loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#loader p {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(253, 216, 53, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--secondary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

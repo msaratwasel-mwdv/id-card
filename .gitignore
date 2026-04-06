@@ -1,0 +1,7 @@
+node_modules/
+*.log
+server_log.txt
+tmp_test.js
+tmp_test2.js
+test_generation.js
+.DS_Store

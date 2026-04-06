@@ -1,0 +1,2 @@
+Server running on http://0.0.0.0:3001
+You can access it at http://localhost:3001
